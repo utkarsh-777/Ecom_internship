@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Signup from "./components/signup";
+import Login from "./components/login";
+import Home from "./components/home";
+import UpdateItem from "./components/update";
+import CreateItem from './create';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/updateitem" component={UpdateItem} />
+        <Route exact path="/create" component={CreateItem} />
+      </Switch>
+    </Router>
   );
 }
 
